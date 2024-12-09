@@ -1,21 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=League+Spartan:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+      --background: #131313;
+      --foreground: #EDEDED;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+      user-select: none;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+      color: var(--foreground);
+      background: var(--background);
+      font-family: "League Spartan", sans-serif;
+      height: 100vh;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.content {
+      @apply flex flex-col xl:flex-row gap-4 xl:gap-24 items-center transition-all duration-[1s] ease-[cubic-bezier(0,1,0,1)];
+}
+
+.content-hide {
+      @apply -translate-y-[100vh] opacity-0;
+}
+
+@keyframes hoverLogo {
+      0% {
+            filter: brightness(500%);
+            transform:  scale(1.02);
+      }
+      100% {
+            filter: brightness(100%);
+            transform:  scale(1.00);
+      }
+}
+
+.logo {
+      @apply text-5xl tracking-wide transition-all hover:cursor-pointer;
+      transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.logo:hover {
+      animation: hoverLogo 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+span {
+      @apply transition-all duration-75;
+}
+
+.links {
+      @apply flex gap-8;
+}
+
+.link {
+
+}
+
+.link:hover {
+      text-decoration: underline;
+      cursor: pointer;
 }
